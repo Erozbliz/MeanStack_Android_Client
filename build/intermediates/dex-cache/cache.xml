@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="c0b193ea99fda56f1cdd73d9526b497d92b2b850">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_18e9a2ba7560e51ad2743ec809fb5c545e141ed4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_1d89aef82ffd1542ef9773e33f27108351181b29\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_22efbbea22dd643ce8dfaa65a0a6342b54f9bd28\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.1_66d9a2f536574546d50090cac9886add061b9a28\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_37afd50ef13bf260e1f7585f9173e61000b46082\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_bd1b58a32ce391fe7293969b126be348023c482c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_69e396da2168e5f3c408def408aae526ef4d987f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_9dea4309362fc90ff28694f92ca2adc424293cb7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5c8af2aedbe6c92591b5abb67e93096e4105f19c">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_52211e545742d1223b71830f336a231f0241a199\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_f6484e5d35c2bdfce1972cd5be5f062e23d52977\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Colombies\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_b0f65b8285f75b5297adb3a06866da227f506f6d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_b07b75c5bbb812f926cdd8b56c97fb6d9f6168b1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_e3547b88b716c28e98f6fb78f651e6e77a9c4ba3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_7a9161bf0b61dd819d007e9ebbe4c13509c0c8e7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_9c8385fc7bcb4b8702d83b8246ac210612c0b85a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_d8f1f6db34b92dd1e441a08e17a03c2e8064c4cc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_4d14d1d433d241377f03787ed15ae0f5746441e7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_16a66f1298fa8dbd0a12a64dca5c4072baf17973\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Java\workspace\MeanStackTest\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="F:\Java\workspace\MeanStackTest\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_72b03cedab862a3423bbb400dabc5f6ab51c238d\classes.dex" />
+    </item>
+
+</items>
