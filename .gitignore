@@ -48,8 +48,17 @@ Temporary Items
 
 
 local.properties
-build/
-.gradle/
 .idea
 *.iml
 *.class
+
+# For Android Studio
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
