@@ -111,12 +111,44 @@
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/mean_sign_in_button"
+                android:id="@+id/mean_inscription_button"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in_mean"
+                android:textStyle="bold" />
+
+
+            <!-- TEST CONNEXION -->
+            <TextView
+                android:text="Information : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:id="@+id/textViewInfoConnect" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/id_mean_connect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_fav"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/mean_connect_button"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/action_connect_mean"
                 android:textStyle="bold" />
 
         </LinearLayout>

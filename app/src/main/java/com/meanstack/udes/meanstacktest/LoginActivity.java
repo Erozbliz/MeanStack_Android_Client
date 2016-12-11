@@ -31,7 +31,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -77,6 +76,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     private static final String LOG_TAG = "test";
 
+    private static final String IPMEAN = "http://192.168.0.101:3000";
+
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -88,7 +89,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-    private TextView mTextViewInfo; //<--------------Pour mean affiche des infos
+    //UI MEAN
+    //Inscription
+    private TextView mTextViewInfo;
+    private AutoCompleteTextView mNameView;
+    private AutoCompleteTextView mFavView;
+    //Connexion
+    private TextView mTextInfoConnectView;
+    private AutoCompleteTextView mIdConnectView;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,19 +130,43 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-        //MEAN
+        //MEAN inscription
         mTextViewInfo = (TextView) findViewById(R.id.textViewInfo);
-        Button mMeanSignInButton = (Button) findViewById(R.id.mean_sign_in_button);
+        mNameView = (AutoCompleteTextView) findViewById(R.id.name_mean);
+        mFavView = (AutoCompleteTextView) findViewById(R.id.fav_mean);
+        Button mMeanSignInButton = (Button) findViewById(R.id.mean_inscription_button);
         mMeanSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(LOG_TAG, "####################Bouton inscription");
-                Toast.makeText(getApplicationContext(), "msg msg", Toast.LENGTH_SHORT).show();
+                Log.i(LOG_TAG, "Bouton inscription");
+                Toast.makeText(getApplicationContext(), "Inscription", Toast.LENGTH_SHORT).show();
 
-                JsonPostRequest jsonPostRequest = new JsonPostRequest();
+                String name = mNameView.getText().toString();
+                String fav = mFavView.getText().toString();
+
+                JsonPostRequest jsonPostRequest = new JsonPostRequest(name,fav);
                 jsonPostRequest.execute();
             }
         });
+
+        //MEAN Connexion
+        mTextInfoConnectView = (TextView) findViewById(R.id.textViewInfoConnect);
+        mIdConnectView = (AutoCompleteTextView) findViewById(R.id.id_mean_connect);
+        Button mMeanConnectButton = (Button) findViewById(R.id.mean_connect_button);
+        mMeanSignInButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(LOG_TAG, "Bouton Connexion");
+                Toast.makeText(getApplicationContext(), "Connexion", Toast.LENGTH_SHORT).show();
+
+                String myId = mIdConnectView.getText().toString();
+
+                JsonConnectRequest jsonConnectRequest = new JsonConnectRequest(myId);
+                jsonConnectRequest.execute();
+            }
+        });
+
+
 
 
 
@@ -397,6 +432,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
     /**
+     * TEMPLATE
      * Inscription mean stack appel sur le bouton inscription
      */
     private class LoginRequest extends AsyncTask<Void, Void, String> {
@@ -467,18 +503,29 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     /**
-     * MEAN STACK asynctask pour l'inscription (bien vérifier l'adresse ip)
+     * MEAN STACK
+     * Asynctask pour l'inscription (bien vérifier l'adresse ip)
      */
     private class JsonPostRequest extends AsyncTask<Void, Void, String> {
+
+
+        private final String mName;
+        private final String mFav;
+
+        //Contructeur par defaut
+        JsonPostRequest(String name, String fav) {
+            mName = name;
+            mFav = fav;
+        }
 
         @Override
         protected String doInBackground(Void... voids) {
 
             try {
-                String address = "http://192.168.0.101:3000/api/users";
+                String address = IPMEAN+"/api/users";
                 JSONObject json = new JSONObject();
-                json.put("name", "Wayne");
-                json.put("fav", "New York");
+                json.put("name", mName);
+                json.put("fav", mFav);
                 String requestBody = json.toString();
                 URL url = new URL(address);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -506,6 +553,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
                 // put into JSONObject
                 JSONObject jsonObject = new JSONObject();
+                //don't delete
                 //jsonObject.put("Content", response);
                 //jsonObject.put("Message", urlConnection.getResponseMessage());
                 //jsonObject.put("Length", urlConnection.getContentLength());
@@ -527,6 +575,86 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             //mTextView.setText(result);
         }
     }
+
+
+
+    /**
+     * MEAN STACK
+     * Asynctask pour la connexion (bien vérifier l'adresse ip)
+     */
+    private class JsonConnectRequest extends AsyncTask<Void, Void, String> {
+
+
+        private final String mId;
+
+        //Contructeur par defaut
+        JsonConnectRequest(String id) {
+            mId = id;
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+
+            try {
+                String address = IPMEAN+"/api/users";
+                JSONObject json = new JSONObject();
+                json.put("id", mId);
+                String requestBody = json.toString();
+                URL url = new URL(address);
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setDoOutput(true);
+                urlConnection.setRequestProperty("Content-Type", "application/json");
+                OutputStream outputStream = new BufferedOutputStream(urlConnection.getOutputStream());
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "utf-8"));
+                writer.write(requestBody);
+                writer.flush();
+                writer.close();
+                outputStream.close();
+
+                InputStream inputStream;
+                // get stream
+                if (urlConnection.getResponseCode() < HttpURLConnection.HTTP_BAD_REQUEST) {
+                    inputStream = urlConnection.getInputStream();
+                } else {
+                    inputStream = urlConnection.getErrorStream();
+                }
+                // parse stream
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                String temp, response = "";
+                while ((temp = bufferedReader.readLine()) != null) {
+                    response += temp;
+                }
+                // put into JSONObject
+                JSONObject jsonObject = new JSONObject();
+                //don't delete
+                //jsonObject.put("Content", response);
+                //jsonObject.put("Message", urlConnection.getResponseMessage());
+                //jsonObject.put("Length", urlConnection.getContentLength());
+                //jsonObject.put("Type", urlConnection.getContentType());
+                //return jsonObject.toString();
+                return response;
+            } catch (IOException | JSONException e) {
+                return e.toString();
+            }
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            parseStringToJson(result);
+            Log.i(LOG_TAG, "POST RESPONSE: " + result);
+            //Toast.makeText(getApplicationContext(), "Détail "+ result, Toast.LENGTH_LONG).show();
+            //mTextView.setText(result);
+        }
+    }
+
+
+    /**
+     * --------------------------------------------------------------------
+     *                              TOOLS
+     *  --------------------------------------------------------------------
+     */
 
     /**
      * TOOL : parse my String to JSON + change mTextViewInfo
