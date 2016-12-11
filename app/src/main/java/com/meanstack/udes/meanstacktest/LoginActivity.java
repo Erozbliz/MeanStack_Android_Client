@@ -31,6 +31,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -87,6 +88,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private TextView mTextViewInfo; //<--------------Pour mean affiche des infos
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +120,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
 
         //MEAN
+        mTextViewInfo = (TextView) findViewById(R.id.textViewInfo);
         Button mMeanSignInButton = (Button) findViewById(R.id.mean_sign_in_button);
         mMeanSignInButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -503,16 +506,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
                 // put into JSONObject
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put("Content", response);
-                jsonObject.put("Message", urlConnection.getResponseMessage());
-                jsonObject.put("Length", urlConnection.getContentLength());
-                jsonObject.put("Type", urlConnection.getContentType());
-                return jsonObject.toString();
+                //jsonObject.put("Content", response);
+                //jsonObject.put("Message", urlConnection.getResponseMessage());
+                //jsonObject.put("Length", urlConnection.getContentLength());
+                //jsonObject.put("Type", urlConnection.getContentType());
+                //return jsonObject.toString();
+                return response;
             } catch (IOException | JSONException e) {
                 return e.toString();
             }
         }
-
 
 
         @Override
@@ -520,26 +523,27 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             super.onPostExecute(result);
             parseStringToJson(result);
             Log.i(LOG_TAG, "POST RESPONSE: " + result);
-            Toast.makeText(getApplicationContext(), "Détail "+ result, Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), "Détail "+ result, Toast.LENGTH_LONG).show();
             //mTextView.setText(result);
         }
     }
 
     /**
-     * TOOL : parse my String to JSON
-     * @param myJsonString
+     * TOOL : parse my String to JSON + change mTextViewInfo
+     * @param myJsonString contient simplement le contenu (pas de header etc)
      */
     public void parseStringToJson(String myJsonString){
         try {
 
-            JSONObject obj = new JSONObject(myJsonString);
+            Log.d("------------------> ", myJsonString);
+            JSONObject json = new JSONObject(myJsonString); // convert String to JSONObject
+            Log.d("-------------", "Taille "+json.length());
+            Log.d("-------------", json.getString("name"));
+            Log.d("-------------", json.getString("_id"));
+            Log.d("-------------", json.getString("fav"));
+            Toast.makeText(getApplicationContext(), "ID : "+json.getString("_id")+", Nom :"+ json.getString("name") +", fav :"+ json.getString("fav"), Toast.LENGTH_LONG).show();
 
-            Log.d("My App", obj.toString());
-            Log.d("name value ", obj.getString("name"));
-            Log.d("id value ", obj.getString("_id"));
-            Log.d("fav value ", obj.getString("fav"));
-            // A TERMINER voir du coté serveur je pense<----------------------------------
-
+            mTextViewInfo.setText("ID : "+json.getString("_id")+", Nom :"+ json.getString("name") +", fav :"+ json.getString("fav"));
 
 
         } catch (Throwable t) {
