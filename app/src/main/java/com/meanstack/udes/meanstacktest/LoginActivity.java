@@ -153,7 +153,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mTextInfoConnectView = (TextView) findViewById(R.id.textViewInfoConnect);
         mIdConnectView = (AutoCompleteTextView) findViewById(R.id.id_mean_connect);
         Button mMeanConnectButton = (Button) findViewById(R.id.mean_connect_button);
-        mMeanSignInButton.setOnClickListener(new OnClickListener() {
+        mMeanConnectButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.i(LOG_TAG, "Bouton Connexion");
@@ -596,9 +596,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected String doInBackground(Void... voids) {
 
             try {
-                String address = IPMEAN+"/api/users";
+                String address = IPMEAN+"/api/users/"+mId;
                 JSONObject json = new JSONObject();
-                json.put("id", mId);
+                //json.put("id", mId);
                 String requestBody = json.toString();
                 URL url = new URL(address);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -633,7 +633,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 //jsonObject.put("Type", urlConnection.getContentType());
                 //return jsonObject.toString();
                 return response;
-            } catch (IOException | JSONException e) {
+            } catch (IOException e) {
                 return e.toString();
             }
         }
@@ -642,8 +642,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            parseStringToJson(result);
-            Log.i(LOG_TAG, "POST RESPONSE: " + result);
+            Log.i(LOG_TAG, "GET RESPONSE: " + result);
             //Toast.makeText(getApplicationContext(), "Détail "+ result, Toast.LENGTH_LONG).show();
             //mTextView.setText(result);
         }

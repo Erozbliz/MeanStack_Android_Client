@@ -10,32 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e42e0cd8-eccc-4820-b48a-e507dba49989" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/android_android_24.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/design_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/espresso_core_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/espresso_idling_resource_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/exposed_instrumentation_api_publish_0_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_integration_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_library_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/javawriter_2_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/javax_annotation_api_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/javax_inject_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jsr305_2_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/rules_0_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/runner_0_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_compat_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_core_ui_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_core_utils_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_fragment_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_media_compat_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_24_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_24_2_1.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
@@ -76,19 +50,19 @@
       <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/meanstack/udes/meanstacktest/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="590" column="36" selection-start-line="590" selection-start-column="36" selection-end-line="590" selection-end-column="36" />
+            <state relative-caret-position="499">
+              <caret line="610" column="31" selection-start-line="610" selection-start-column="31" selection-end-line="610" selection-end-column="31" />
               <folding>
                 <element signature="e#4361#4876#0" expanded="true" />
                 <element signature="e#4875#4876#0" expanded="true" />
-                <element signature="e#5201#5665#0" expanded="true" />
-                <element signature="e#5664#5665#0" expanded="true" />
+                <element signature="e#5202#5666#0" expanded="true" />
+                <element signature="e#5665#5666#0" expanded="true" />
                 <element signature="method#addEmailsToAutoComplete#0;class#LoginActivity#0" expanded="false" />
                 <element signature="class#ProfileQuery#0;class#LoginActivity#0" expanded="false" />
                 <element signature="class#UserLoginTask#0;class#LoginActivity#0" expanded="false" />
                 <element signature="class#LoginRequest#0;class#LoginActivity#0" expanded="false" />
-                <element signature="e#21122#21123#0" expanded="true" />
-                <element signature="e#21154#21155#0" expanded="true" />
+                <element signature="e#21123#21124#0" expanded="true" />
+                <element signature="e#21155#21156#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -143,10 +117,10 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="150" column="52" selection-start-line="150" selection-start-column="52" selection-end-line="150" selection-end-column="52" />
+            <state relative-caret-position="310">
+              <caret line="138" column="51" selection-start-line="138" selection-start-column="51" selection-end-line="138" selection-end-column="51" />
               <folding>
-                <element signature="e#5689#5709#0" expanded="true" />
+                <element signature="e#6215#6244#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,8 +129,8 @@
       <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+            <state relative-caret-position="425">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -2324,7 +2298,7 @@
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43502203" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23017621" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27312776" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2332,7 +2306,7 @@
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39977974" sideWeight="0.4978678" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2380,14 +2354,14 @@
           <folding>
             <element signature="e#4361#4876#0" expanded="true" />
             <element signature="e#4875#4876#0" expanded="true" />
-            <element signature="e#5201#5665#0" expanded="true" />
-            <element signature="e#5664#5665#0" expanded="true" />
+            <element signature="e#5202#5666#0" expanded="true" />
+            <element signature="e#5665#5666#0" expanded="true" />
             <element signature="method#addEmailsToAutoComplete#0;class#LoginActivity#0" expanded="false" />
             <element signature="class#ProfileQuery#0;class#LoginActivity#0" expanded="false" />
             <element signature="class#UserLoginTask#0;class#LoginActivity#0" expanded="false" />
             <element signature="class#LoginRequest#0;class#LoginActivity#0" expanded="false" />
-            <element signature="e#21122#21123#0" expanded="true" />
-            <element signature="e#21154#21155#0" expanded="true" />
+            <element signature="e#21123#21124#0" expanded="true" />
+            <element signature="e#21155#21156#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2432,7 +2406,7 @@
         <state relative-caret-position="1360">
           <caret line="80" column="39" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
           <folding>
-            <element signature="e#5689#5709#0" expanded="true" />
+            <element signature="e#6215#6244#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2452,14 +2426,14 @@
           <folding>
             <element signature="e#4361#4876#0" expanded="true" />
             <element signature="e#4875#4876#0" expanded="true" />
-            <element signature="e#5201#5665#0" expanded="true" />
-            <element signature="e#5664#5665#0" expanded="true" />
+            <element signature="e#5202#5666#0" expanded="true" />
+            <element signature="e#5665#5666#0" expanded="true" />
             <element signature="method#addEmailsToAutoComplete#0;class#LoginActivity#0" expanded="false" />
             <element signature="class#ProfileQuery#0;class#LoginActivity#0" expanded="false" />
             <element signature="class#UserLoginTask#0;class#LoginActivity#0" expanded="false" />
             <element signature="class#LoginRequest#0;class#LoginActivity#0" expanded="false" />
-            <element signature="e#21122#21123#0" expanded="true" />
-            <element signature="e#21154#21155#0" expanded="true" />
+            <element signature="e#21123#21124#0" expanded="true" />
+            <element signature="e#21155#21156#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2491,7 +2465,7 @@
         <state relative-caret-position="1802">
           <caret line="106" column="52" selection-start-line="106" selection-start-column="33" selection-end-line="106" selection-end-column="52" />
           <folding>
-            <element signature="e#5689#5709#0" expanded="true" />
+            <element signature="e#6215#6244#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2511,14 +2485,14 @@
           <folding>
             <element signature="e#4361#4876#0" expanded="true" />
             <element signature="e#4875#4876#0" expanded="true" />
-            <element signature="e#5201#5665#0" expanded="true" />
-            <element signature="e#5664#5665#0" expanded="true" />
+            <element signature="e#5202#5666#0" expanded="true" />
+            <element signature="e#5665#5666#0" expanded="true" />
             <element signature="method#addEmailsToAutoComplete#0;class#LoginActivity#0" expanded="false" />
             <element signature="class#ProfileQuery#0;class#LoginActivity#0" expanded="false" />
             <element signature="class#UserLoginTask#0;class#LoginActivity#0" expanded="false" />
             <element signature="class#LoginRequest#0;class#LoginActivity#0" expanded="false" />
-            <element signature="e#21122#21123#0" expanded="true" />
-            <element signature="e#21154#21155#0" expanded="true" />
+            <element signature="e#21123#21124#0" expanded="true" />
+            <element signature="e#21155#21156#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2563,37 +2537,45 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="150" column="52" selection-start-line="150" selection-start-column="52" selection-end-line="150" selection-end-column="52" />
+        <state relative-caret-position="310">
+          <caret line="138" column="51" selection-start-line="138" selection-start-column="51" selection-end-line="138" selection-end-column="51" />
           <folding>
-            <element signature="e#5689#5709#0" expanded="true" />
+            <element signature="e#6215#6244#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="572" column="0" selection-start-line="572" selection-start-column="0" selection-end-line="572" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+        <state relative-caret-position="425">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/meanstack/udes/meanstacktest/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="590" column="36" selection-start-line="590" selection-start-column="36" selection-end-line="590" selection-end-column="36" />
+        <state relative-caret-position="499">
+          <caret line="610" column="31" selection-start-line="610" selection-start-column="31" selection-end-line="610" selection-end-column="31" />
           <folding>
             <element signature="e#4361#4876#0" expanded="true" />
             <element signature="e#4875#4876#0" expanded="true" />
-            <element signature="e#5201#5665#0" expanded="true" />
-            <element signature="e#5664#5665#0" expanded="true" />
+            <element signature="e#5202#5666#0" expanded="true" />
+            <element signature="e#5665#5666#0" expanded="true" />
             <element signature="method#addEmailsToAutoComplete#0;class#LoginActivity#0" expanded="false" />
             <element signature="class#ProfileQuery#0;class#LoginActivity#0" expanded="false" />
             <element signature="class#UserLoginTask#0;class#LoginActivity#0" expanded="false" />
             <element signature="class#LoginRequest#0;class#LoginActivity#0" expanded="false" />
-            <element signature="e#21122#21123#0" expanded="true" />
-            <element signature="e#21154#21155#0" expanded="true" />
+            <element signature="e#21123#21124#0" expanded="true" />
+            <element signature="e#21155#21156#0" expanded="true" />
           </folding>
         </state>
       </provider>
