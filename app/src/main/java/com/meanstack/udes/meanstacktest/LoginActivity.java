@@ -50,6 +50,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
@@ -559,6 +561,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 //jsonObject.put("Length", urlConnection.getContentLength());
                 //jsonObject.put("Type", urlConnection.getContentType());
                 //return jsonObject.toString();
+                Log.i(LOG_TAG, "MESSAGE RESPONSE: " + urlConnection.getResponseMessage());
+
+
                 return response;
             } catch (IOException | JSONException e) {
                 return e.toString();
@@ -568,11 +573,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         @Override
         protected void onPostExecute(String result) {
+            mTextViewInfo.setText(result);
             super.onPostExecute(result);
             parseStringToJson(result);
             Log.i(LOG_TAG, "POST RESPONSE: " + result);
-            //Toast.makeText(getApplicationContext(), "Détail "+ result, Toast.LENGTH_LONG).show();
-            //mTextView.setText(result);
+            Toast.makeText(getApplicationContext(), "Détail Inscription"+ result, Toast.LENGTH_LONG).show();
+            //mTextViewInfo.setText(result);
+
         }
     }
 
@@ -580,7 +587,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     /**
      * MEAN STACK
+     * https://medium.com/@JasonCromer/android-asynctask-http-request-tutorial-6b429d833e28#.tmg8z8c1t
      * Asynctask pour la connexion (bien vérifier l'adresse ip)
+     * Void, void , string
      */
     private class JsonConnectRequest extends AsyncTask<Void, Void, String> {
 
@@ -592,59 +601,55 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mId = id;
         }
 
-        @Override
-        protected String doInBackground(Void... voids) {
 
+        public static final String REQUEST_METHOD = "GET";
+        public static final int READ_TIMEOUT = 5000;
+        public static final int CONNECTION_TIMEOUT = 5000;
+
+        @Override
+        protected String doInBackground(Void... voids){
+            String stringUrl = IPMEAN+"/api/users/"+mId;
+            String result;
+            String inputLine;
             try {
-                String address = IPMEAN+"/api/users/"+mId;
-                JSONObject json = new JSONObject();
-                //json.put("id", mId);
-                String requestBody = json.toString();
-                URL url = new URL(address);
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setDoOutput(true);
-                urlConnection.setRequestProperty("Content-Type", "application/json");
-                OutputStream outputStream = new BufferedOutputStream(urlConnection.getOutputStream());
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "utf-8"));
-                writer.write(requestBody);
-                writer.flush();
-                writer.close();
-                outputStream.close();
+                //Create a URL object holding our url
+                URL myUrl = new URL(stringUrl);
+                //Create a connection
+                HttpURLConnection connection =(HttpURLConnection)
+                        myUrl.openConnection();
+                //Set methods and timeouts
+                connection.setRequestMethod(REQUEST_METHOD);
+                connection.setReadTimeout(READ_TIMEOUT);
+                connection.setConnectTimeout(CONNECTION_TIMEOUT);
 
-                InputStream inputStream;
-                // get stream
-                if (urlConnection.getResponseCode() < HttpURLConnection.HTTP_BAD_REQUEST) {
-                    inputStream = urlConnection.getInputStream();
-                } else {
-                    inputStream = urlConnection.getErrorStream();
+                //Connect to our url
+                connection.connect();
+                //Create a new InputStreamReader
+                InputStreamReader streamReader = new
+                        InputStreamReader(connection.getInputStream());
+                //Create a new buffered reader and String Builder
+                BufferedReader reader = new BufferedReader(streamReader);
+                StringBuilder stringBuilder = new StringBuilder();
+                //Check if the line we are reading is not null
+                while((inputLine = reader.readLine()) != null){
+                    stringBuilder.append(inputLine);
                 }
-                // parse stream
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                String temp, response = "";
-                while ((temp = bufferedReader.readLine()) != null) {
-                    response += temp;
-                }
-                // put into JSONObject
-                JSONObject jsonObject = new JSONObject();
-                //don't delete
-                //jsonObject.put("Content", response);
-                //jsonObject.put("Message", urlConnection.getResponseMessage());
-                //jsonObject.put("Length", urlConnection.getContentLength());
-                //jsonObject.put("Type", urlConnection.getContentType());
-                //return jsonObject.toString();
-                return response;
-            } catch (IOException e) {
-                return e.toString();
+                //Close our InputStream and Buffered reader
+                reader.close();
+                streamReader.close();
+                //Set our result equal to our stringBuilder
+                result = stringBuilder.toString();
             }
+            catch(IOException e){
+                e.printStackTrace();
+                result = e.toString();
+            }
+            return result;
         }
-
-
         @Override
-        protected void onPostExecute(String result) {
+        protected void onPostExecute(String result){
+            mTextInfoConnectView.setText(result);
             super.onPostExecute(result);
-            Log.i(LOG_TAG, "GET RESPONSE: " + result);
-            //Toast.makeText(getApplicationContext(), "Détail "+ result, Toast.LENGTH_LONG).show();
-            //mTextView.setText(result);
         }
     }
 
