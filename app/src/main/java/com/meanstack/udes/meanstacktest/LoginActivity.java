@@ -505,7 +505,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     /**
-     * MEAN STACK
+     * MEAN STACK POST
      * Asynctask pour l'inscription (bien vérifier l'adresse ip)
      */
     private class JsonPostRequest extends AsyncTask<Void, Void, String> {
@@ -513,6 +513,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         private final String mName;
         private final String mFav;
+
+        public static final int READ_TIMEOUT = 5000;
+        public static final int CONNECTION_TIMEOUT = 5000;
 
         //Contructeur par defaut
         JsonPostRequest(String name, String fav) {
@@ -531,6 +534,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 String requestBody = json.toString();
                 URL url = new URL(address);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setReadTimeout(READ_TIMEOUT);
+                urlConnection.setConnectTimeout(CONNECTION_TIMEOUT);
                 urlConnection.setDoOutput(true);
                 urlConnection.setRequestProperty("Content-Type", "application/json");
                 OutputStream outputStream = new BufferedOutputStream(urlConnection.getOutputStream());
@@ -586,7 +591,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
     /**
-     * MEAN STACK
+     * MEAN STACK GET
      * https://medium.com/@JasonCromer/android-asynctask-http-request-tutorial-6b429d833e28#.tmg8z8c1t
      * Asynctask pour la connexion (bien vérifier l'adresse ip)
      * Void, void , string

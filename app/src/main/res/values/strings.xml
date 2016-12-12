@@ -12,6 +12,8 @@
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_mean">Inscription</string>
     <string name="action_connect_mean">Connexion</string>
+    <string name="action_edit_mean">Modifier</string>
+
 
 
     <string name="action_sign_in_short">Sign in</string>
