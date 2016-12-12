@@ -152,7 +152,7 @@
                 android:textStyle="bold" />
 
 
-                <!-- TEST EDIT -->
+            <!-- TEST EDIT -->
             <TextView
                 android:text="ID : "
                 android:layout_width="wrap_content"
@@ -168,7 +168,6 @@
                     android:id="@+id/name_edit_mean"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_name"
                     android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true" />
@@ -183,7 +182,6 @@
                     android:id="@+id/fav_edit_mean"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_fav"
                     android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true" />

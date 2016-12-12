@@ -3,6 +3,7 @@ package com.meanstack.udes.meanstacktest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -79,6 +80,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private static final String LOG_TAG = "test";
 
     private static final String IPMEAN = "http://192.168.0.101:3000";
+
 
 
     /**
@@ -514,8 +516,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         private final String mName;
         private final String mFav;
 
-        public static final int READ_TIMEOUT = 5000;
-        public static final int CONNECTION_TIMEOUT = 5000;
+        public static final int READ_TIMEOUT = 3000;
+        public static final int CONNECTION_TIMEOUT = 3000;
 
         //Contructeur par defaut
         JsonPostRequest(String name, String fav) {
@@ -608,8 +610,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
         public static final String REQUEST_METHOD = "GET";
-        public static final int READ_TIMEOUT = 5000;
-        public static final int CONNECTION_TIMEOUT = 5000;
+        public static final int READ_TIMEOUT = 3000;
+        public static final int CONNECTION_TIMEOUT = 3000;
 
         @Override
         protected String doInBackground(Void... voids){
@@ -666,7 +668,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
 
     /**
-     * TOOL : parse my String to JSON + change mTextViewInfo
+     * TOOL : parse my String to JSON + change mTextViewInfo + sharedPreference
      * @param myJsonString contient simplement le contenu (pas de header etc)
      */
     public void parseStringToJson(String myJsonString){
@@ -681,6 +683,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             Toast.makeText(getApplicationContext(), "ID : "+json.getString("_id")+", Nom :"+ json.getString("name") +", fav :"+ json.getString("fav"), Toast.LENGTH_LONG).show();
 
             mTextViewInfo.setText("ID : "+json.getString("_id")+", Nom :"+ json.getString("name") +", fav :"+ json.getString("fav"));
+
+
+            SharedPreferences settings = getApplicationContext().getSharedPreferences("LOCAL", 0);
+            SharedPreferences.Editor editor = settings.edit();
+
+            //sauvegarde local
+            editor.putString("save_name", json.getString("name"));
+            editor.putString("save_id", json.getString("_id"));
+            editor.putString("save_fav", json.getString("fav"));
+
+
 
 
         } catch (Throwable t) {
