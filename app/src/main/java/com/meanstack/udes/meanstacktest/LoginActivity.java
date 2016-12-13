@@ -654,13 +654,23 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
 
+
+
         public static final String REQUEST_METHOD = "GET";
         public static final int READ_TIMEOUT = 3000;
         public static final int CONNECTION_TIMEOUT = 3000;
 
         @Override
         protected String doInBackground(Void... voids){
-            String stringUrl = IPMEAN+"/api/users/"+mId;
+
+            //Nécessaire car si on envoie une url sans l'id le serveur nous renvoie tout les utilisateurs
+            String idFinal = mId;
+            if(mId.isEmpty()){
+                idFinal="vide";
+            }
+            String stringUrl = IPMEAN+"/api/users/"+idFinal;
+            Log.d("-------------", stringUrl);
+
             String result;
             String inputLine;
             try {
@@ -716,7 +726,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private class JsonEditRequest extends AsyncTask<Void, Void, String> {
 
 
-        private final String mId;
+        private final String mId; //Doit provenir de sharedPreference
         private final String mName;
         private final String mFav;
 
@@ -767,9 +777,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 //Create a new InputStreamReader
                 InputStreamReader streamReader = new
                         InputStreamReader(connection.getInputStream());
+
                 //Create a new buffered reader and String Builder
                 BufferedReader reader = new BufferedReader(streamReader);
                 StringBuilder stringBuilder = new StringBuilder();
+
+
                 //Check if the line we are reading is not null
                 while((inputLine = reader.readLine()) != null){
                     stringBuilder.append(inputLine);
@@ -788,8 +801,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
         @Override
         protected void onPostExecute(String result){
-            mTextEditView.setText(result);
+            //mTextEditView.setText(result); //contient les données avant la modification
             super.onPostExecute(result);
+            JsonConnectRequest jsonConnectRequest = new JsonConnectRequest(getIdSharedPreference()); //on met à jour apres l'update qu'on a fait
+            jsonConnectRequest.execute();
+
+
             //parseStringToJson(result); //parse et sauvegarde localement les données
             //printFromSharedPreference(); //affiche les donées de SharedPreferences
         }
