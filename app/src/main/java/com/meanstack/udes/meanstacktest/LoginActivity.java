@@ -188,11 +188,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 Log.i(LOG_TAG, "Bouton Edit");
                 Toast.makeText(getApplicationContext(), "Edit", Toast.LENGTH_SHORT).show();
 
-                String myId = mIdConnectView.getText().toString();
+                String myId = getIdSharedPreference(); //Provient de sharedPreference
+                String name = mNameEditView.getText().toString();
+                String fav = mFavEditView.getText().toString();
+
 
                 //A TERMINER FAIRE UNE METHODE PUT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
                 //JsonConnectRequest jsonConnectRequest = new JsonConnectRequest(myId);
                 //jsonConnectRequest.execute();
+                JsonEditRequest jsonEditRequest = new JsonEditRequest(myId,name,fav);
+                jsonEditRequest.execute();
             }
         });
 
@@ -704,6 +709,94 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
     /**
+     * MEAN STACK PUT
+     * Asynctask pour la modification d'un profil (bien vérifier l'adresse ip)
+     * Void, void , string
+     */
+    private class JsonEditRequest extends AsyncTask<Void, Void, String> {
+
+
+        private final String mId;
+        private final String mName;
+        private final String mFav;
+
+        //Contructeur par defaut
+        JsonEditRequest(String id, String name, String fav) {
+            mId = id;
+            mName = name;
+            mFav = fav;
+        }
+
+
+        public static final String REQUEST_METHOD = "PUT";
+        public static final int READ_TIMEOUT = 3000;
+        public static final int CONNECTION_TIMEOUT = 3000;
+
+        @Override
+        protected String doInBackground(Void... voids){
+            String stringUrl = IPMEAN+"/api/users/"+mId;
+
+
+            String result;
+            String inputLine;
+            try {
+                //Create a URL object holding our url
+                URL myUrl = new URL(stringUrl);
+                JSONObject json = new JSONObject();
+                json.put("name", mName);
+                json.put("fav", mFav);
+                String requestBody = json.toString();
+                //Create a connection
+                HttpURLConnection connection =(HttpURLConnection)
+                        myUrl.openConnection();
+                //Set methods and timeouts
+                connection.setRequestMethod(REQUEST_METHOD);
+                connection.setReadTimeout(READ_TIMEOUT);
+                connection.setConnectTimeout(CONNECTION_TIMEOUT);
+
+                connection.setRequestProperty("Content-Type", "application/json");
+                OutputStream outputStream = new BufferedOutputStream(connection.getOutputStream());
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "utf-8"));
+                writer.write(requestBody);
+                writer.flush();
+                writer.close();
+                outputStream.close();
+
+                //Connect to our url
+                connection.connect();
+                //Create a new InputStreamReader
+                InputStreamReader streamReader = new
+                        InputStreamReader(connection.getInputStream());
+                //Create a new buffered reader and String Builder
+                BufferedReader reader = new BufferedReader(streamReader);
+                StringBuilder stringBuilder = new StringBuilder();
+                //Check if the line we are reading is not null
+                while((inputLine = reader.readLine()) != null){
+                    stringBuilder.append(inputLine);
+                }
+                //Close our InputStream and Buffered reader
+                reader.close();
+                streamReader.close();
+                //Set our result equal to our stringBuilder
+                result = stringBuilder.toString();
+            }
+            catch(IOException | JSONException e){
+                e.printStackTrace();
+                result = e.toString();
+            }
+            return result;
+        }
+        @Override
+        protected void onPostExecute(String result){
+            mTextEditView.setText(result);
+            super.onPostExecute(result);
+            //parseStringToJson(result); //parse et sauvegarde localement les données
+            //printFromSharedPreference(); //affiche les donées de SharedPreferences
+        }
+    }
+
+
+    /**
      * --------------------------------------------------------------------
      *                              TOOLS
      *  --------------------------------------------------------------------
@@ -745,7 +838,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
     /**
-     * Cherche si on a sauvegardé des données
+     *
+     * Cherche si on a sauvegardé des données + affiche
+     * Utilisé au lancement de l'application
      */
     public void printFromSharedPreference(){
 
@@ -762,6 +857,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mTextEditView.setText("Aucune données dans SharedPreferences");
 
         }
+    }
+
+    /**
+     * Permet de retourner l'id sauvegardé par sharedPreference
+     * Utilisé pour la modification d'un profil
+     * @return l'id sauvegardé localement
+     */
+    public String getIdSharedPreference(){
+
+        SharedPreferences settings;
+        settings = getApplicationContext().getSharedPreferences(PREFS_NAME, MODE_PRIVATE); //1
+        String save_id = settings.getString("save_id", null);
+
+        return save_id;
     }
 
     /**
