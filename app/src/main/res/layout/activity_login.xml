@@ -169,6 +169,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:hint="Name"
                     android:maxLines="1"
                     android:singleLine="true" />
 
@@ -183,6 +184,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:hint="Ville, ville"
                     android:maxLines="1"
                     android:singleLine="true" />
             </android.support.design.widget.TextInputLayout>
@@ -195,7 +197,17 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/action_edit_mean"
                 android:textStyle="bold"
-                android:clickable = "false" />
+                />
+
+            <Button
+                android:id="@+id/mean_logout_button"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/action_logout_mean"
+                android:textStyle="bold"
+                />
 
         </LinearLayout>
     </ScrollView>

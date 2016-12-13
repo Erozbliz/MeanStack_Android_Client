@@ -101,8 +101,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     //Connexion
     private TextView mTextInfoConnectView;
     private AutoCompleteTextView mIdConnectView;
+    //Edit
+    private TextView mTextEditView;
+    private AutoCompleteTextView mNameEditView;
+    private AutoCompleteTextView mFavEditView;
 
 
+
+    String PREFS_NAME = "LOCAL";
 
 
     @Override
@@ -167,6 +173,40 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                 JsonConnectRequest jsonConnectRequest = new JsonConnectRequest(myId);
                 jsonConnectRequest.execute();
+            }
+        });
+
+
+        //MEAN edit
+        mTextEditView = (TextView) findViewById(R.id.textViewInfoEdit);
+        mNameEditView = (AutoCompleteTextView) findViewById(R.id.name_edit_mean);
+        mFavEditView = (AutoCompleteTextView) findViewById(R.id.fav_edit_mean);
+        Button mMeanEditButton = (Button) findViewById(R.id.mean_edit_button);
+        mMeanEditButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(LOG_TAG, "Bouton Edit");
+                Toast.makeText(getApplicationContext(), "Edit", Toast.LENGTH_SHORT).show();
+
+                String myId = mIdConnectView.getText().toString();
+
+                //A TERMINER FAIRE UNE METHODE PUT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                //JsonConnectRequest jsonConnectRequest = new JsonConnectRequest(myId);
+                //jsonConnectRequest.execute();
+            }
+        });
+
+        //affiche au lancement les données local de sharedPreference
+        printFromSharedPreference();
+
+        //Déconnexion (vide le sharePreference)
+        Button mMeanLogoutButton = (Button) findViewById(R.id.mean_logout_button);
+        mMeanLogoutButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(LOG_TAG, "Bouton Logout");
+                Toast.makeText(getApplicationContext(), "Déconnexion", Toast.LENGTH_SHORT).show();
+                flushSharedPreference();
             }
         });
 
@@ -657,6 +697,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected void onPostExecute(String result){
             mTextInfoConnectView.setText(result);
             super.onPostExecute(result);
+            parseStringToJson(result); //parse et sauvegarde localement les données
+            printFromSharedPreference(); //affiche les donées de SharedPreferences
         }
     }
 
@@ -685,14 +727,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mTextViewInfo.setText("ID : "+json.getString("_id")+", Nom :"+ json.getString("name") +", fav :"+ json.getString("fav"));
 
 
-            SharedPreferences settings = getApplicationContext().getSharedPreferences("LOCAL", 0);
+            SharedPreferences settings = getApplicationContext().getSharedPreferences(PREFS_NAME, MODE_PRIVATE); //MODE_PRIVATE
             SharedPreferences.Editor editor = settings.edit();
 
             //sauvegarde local
             editor.putString("save_name", json.getString("name"));
             editor.putString("save_id", json.getString("_id"));
             editor.putString("save_fav", json.getString("fav"));
-
+            editor.commit();
 
 
 
@@ -700,6 +742,47 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             Log.e("My App", "Could not parse malformed JSON: \"" + myJsonString + "\"");
         }
     }
+
+
+    /**
+     * Cherche si on a sauvegardé des données
+     */
+    public void printFromSharedPreference(){
+
+        SharedPreferences settings;
+
+        settings = getApplicationContext().getSharedPreferences(PREFS_NAME, MODE_PRIVATE); //1
+        String save_name = settings.getString("save_name", null);
+        String save_id = settings.getString("save_id", null);
+        String save_fav = settings.getString("save_fav", null);
+        if(save_id!=null){
+            mTextEditView.setText("id:"+save_id+" nom:"+save_name+" ville:"+save_fav);
+            Toast.makeText(getApplicationContext(), "Donnée Local trouvé. Bonjour "+save_name, Toast.LENGTH_SHORT).show();
+        }else{
+            mTextEditView.setText("Aucune données dans SharedPreferences");
+
+        }
+    }
+
+    /**
+     * Déconnexion
+     * Méthode qui vide simplement le SharedPreference
+     */
+    public void flushSharedPreference(){
+
+        SharedPreferences settings;
+        SharedPreferences.Editor editor;
+
+        settings = getApplicationContext().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        editor = settings.edit();
+
+        editor.clear();
+        editor.commit();
+        Toast.makeText(getApplicationContext(), "Données Locales nettoyé", Toast.LENGTH_SHORT).show();
+        mTextEditView.setText("VIDE");
+    }
+
+
 
 }
 

@@ -13,6 +13,8 @@
     <string name="action_sign_in_mean">Inscription</string>
     <string name="action_connect_mean">Connexion</string>
     <string name="action_edit_mean">Modifier</string>
+    <string name="action_logout_mean">Déconnexion</string>
+
 
 
 
