@@ -45,26 +45,21 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-
-
 
 
 /**
- * A login screen that offers login via email/password.
+ * Permet de tester le serveur mean stack
+ * Comprend un formulaire pour l'inscription, connexion, modification
+ * Un bouton déconnexion qui supprime les données dans sharedPreference
+ * La session reposera sur sharedPreference
  */
 public class LoginActivity extends AppCompatActivity {
-
 
     //Log
     private static final String LOG_TAG = "test";
 
     //Adresse IP + PORT
     private static final String IPMEAN = "http://192.168.0.101:3000";
-
 
 
     //--- UI MEAN --
@@ -166,76 +161,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * TEMPLATE
-     * Inscription mean stack appel sur le bouton inscription
-     */
-    private class LoginRequest extends AsyncTask<Void, Void, String> {
-
-        @Override
-        protected String doInBackground(Void... voids) {
-            String address = "http://server/login";
-            HttpURLConnection urlConnection;
-            String requestBody;
-            Uri.Builder builder = new Uri.Builder();
-            Map<String, String> params = new HashMap<>();
-            params.put("username", "bnk");
-            params.put("password", "bnk123");
-
-
-            // encode parameters
-            Iterator entries = params.entrySet().iterator();
-            while (entries.hasNext()) {
-                Map.Entry entry = (Map.Entry) entries.next();
-                builder.appendQueryParameter(entry.getKey().toString(), entry.getValue().toString());
-                entries.remove();
-            }
-            requestBody = builder.build().getEncodedQuery();
-
-            try {
-                URL url = new URL(address);
-                urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setDoOutput(true);
-                urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                OutputStream outputStream = new BufferedOutputStream(urlConnection.getOutputStream());
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "utf-8"));
-                writer.write(requestBody);
-                writer.flush();
-                writer.close();
-                outputStream.close();
-
-                JSONObject jsonObject = new JSONObject();
-                InputStream inputStream;
-                // get stream
-                if (urlConnection.getResponseCode() < HttpURLConnection.HTTP_BAD_REQUEST) {
-                    inputStream = urlConnection.getInputStream();
-                } else {
-                    inputStream = urlConnection.getErrorStream();
-                }
-                // parse stream
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                String temp, response = "";
-                while ((temp = bufferedReader.readLine()) != null) {
-                    response += temp;
-                }
-                // put into JSONObject
-                jsonObject.put("Content", response);
-                jsonObject.put("Message", urlConnection.getResponseMessage());
-                jsonObject.put("Length", urlConnection.getContentLength());
-                jsonObject.put("Type", urlConnection.getContentType());
-
-                return jsonObject.toString();
-            } catch (IOException | JSONException e) {
-                return e.toString();
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            Log.i(LOG_TAG, "POST\n" + result);
-        }
-    }
 
     /**
      * MEAN STACK POST
