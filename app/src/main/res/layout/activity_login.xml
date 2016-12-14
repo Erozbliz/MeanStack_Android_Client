@@ -159,15 +159,33 @@
                 android:textStyle="bold"
                 />
 
-            <Button
-                android:id="@+id/mean_logout_button"
-                style="?android:textAppearanceSmall"
+
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/action_logout_mean"
-                android:textStyle="bold"
-                />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:columnCount="1"
+                android:rowCount="1"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="0dp"
+                android:background="@color/colorCard"
+                >
+
+                <Button
+                    android:id="@+id/mean_logout_button"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/action_logout_mean"
+                    android:textStyle="bold"
+                    />
+
+            </GridLayout>
+
+
 
         </LinearLayout>
     </ScrollView>
