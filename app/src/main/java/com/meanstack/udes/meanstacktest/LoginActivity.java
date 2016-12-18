@@ -1,19 +1,7 @@
 package com.meanstack.udes.meanstacktest;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
-
-import android.content.CursorLoader;
-import android.content.Loader;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.AsyncTask;
 
 import android.os.Build;
@@ -145,6 +133,16 @@ public class LoginActivity extends AppCompatActivity {
 
         //affiche au lancement les données local de sharedPreference
         printFromSharedPreference();
+
+        //Notification
+        String myLocalId = getIdSharedPreference();
+        String myLocalName = getNameSharedPreference();
+        String myLocalFav = getFavSharedPreference();
+        if(myLocalId!=null && myLocalName!=null){
+            FavNotification.notify(getApplicationContext(),"Bonjour "+myLocalName+" Vos favoris sont : "+myLocalFav,1);
+        }else{
+            FavNotification.notify(getApplicationContext(),"Connectez-vous pour sauvegarder vos favoris ",1);
+        }
 
         //Déconnexion (vide le sharePreference)
         Button mMeanLogoutButton = (Button) findViewById(R.id.mean_logout_button);

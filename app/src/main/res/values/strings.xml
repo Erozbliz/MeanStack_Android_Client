@@ -13,12 +13,21 @@
     <string name="action_logout_mean">Déconnexion</string>
 
 
-
-
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+
+    <!-- favoris -->
+    <string name="fav_notification_title_template">Favoris météo: %1$s</string>
+
+    <!-- TODO: remove this placeholder text -->
+    <string name="fav_notification_placeholder_text_template">
+        %1$s
+    </string>
+
+    <string name="action_share">Share</string>
+    <string name="action_reply">Reply</string>
 
 </resources>
