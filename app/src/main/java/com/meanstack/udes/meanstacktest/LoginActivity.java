@@ -1,5 +1,7 @@
 package com.meanstack.udes.meanstacktest;
 
+import android.appwidget.AppWidgetManager;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.AsyncTask;
@@ -48,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
 
     //Adresse IP + PORT
     private static final String IPMEAN = "http://192.168.0.101:3000";
+
+
 
 
     //--- UI MEAN --
@@ -143,6 +147,8 @@ public class LoginActivity extends AppCompatActivity {
         }else{
             FavNotification.notify(getApplicationContext(),"Connectez-vous pour sauvegarder vos favoris ",1);
         }
+
+
 
         //Déconnexion (vide le sharePreference)
         Button mMeanLogoutButton = (Button) findViewById(R.id.mean_logout_button);
@@ -541,6 +547,9 @@ public class LoginActivity extends AppCompatActivity {
 
         return save_fav;
     }
+
+
+
 
 
 
