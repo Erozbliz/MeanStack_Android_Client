@@ -6,10 +6,13 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import java.util.Random;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Implementation of App Widget functionality.
@@ -82,10 +85,17 @@ public class FavAppWidget extends AppWidgetProvider {
 
         if (RED_CLICKED.equals(intent.getAction())) {
 
-                // If the Red TextView clicked, then do that
-                remoteViews.setTextViewText(R.id.appwidget_text, "" + randomNumber);
+            // If the Red TextView clicked, then do that
+            //remoteViews.setTextViewText(R.id.appwidget_text, "" + randomNumber);
+            String name = getSharedPrefName(context);
+            String fav = getSharedPrefFav(context);
+            String msg = "Vos favoris sont : "+fav;
+            if(fav==null){
+                msg="Veillez vous connecter";
+            }
+            remoteViews.setTextViewText(R.id.appwidget_text, msg);
 
-            Toast.makeText(context, "Rafraichissement: ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Rafraichissement", Toast.LENGTH_SHORT).show();
         }
 
         /*if (GREEN_CLICKED.equals(intent.getAction())) {
@@ -103,6 +113,21 @@ public class FavAppWidget extends AppWidgetProvider {
     @Override
     public void onDisabled(Context context) {
         // Enter relevant functionality for when the last widget is disabled
+    }
+
+
+    public static String getSharedPrefName(Context context){
+        SharedPreferences settings;
+        settings = context.getSharedPreferences("LOCAL", MODE_PRIVATE); //1
+        String save_id = settings.getString("save_name", null);
+        return save_id;
+    }
+
+    public static String getSharedPrefFav(Context context){
+        SharedPreferences settings;
+        settings = context.getSharedPreferences("LOCAL", MODE_PRIVATE); //1
+        String save_id = settings.getString("save_fav", null);
+        return save_id;
     }
 }
 
