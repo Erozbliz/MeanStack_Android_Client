@@ -18,4 +18,4 @@ netstat -ano | find ":2222"
 TASKKILL /PID 10856 -f
 
 ## Capture 
-![alt tag]()
+![alt tag](https://github.com/Erozbliz/MeanStack_Android_Client/blob/master/Capture/demo%201.png?raw=true)
